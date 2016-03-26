@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+
+    <package name="default" namespace="/" extends="struts-default">
+
+	 <global-results> 
+			 <result name="ajax">/ajax.jsp</result>
+		</global-results>
+		<action name="book_*" class="bookAction" method="{1}">
+			<result>/success.jsp</result>
+			<result name="list" type="redirectAction">
+				<param name="actionName">book_getAll</param>
+			</result>
+		</action>
+		
+		
+		<action name="dept_*" class="deptAction" method="{1}">
+			<result>/dept_list.jsp</result>
+			<result name="list" type="redirectAction">
+				<param name="actionName">dept_getAll</param>
+			</result>
+		</action>
+
+    </package>
+
+
+    <!-- Add packages here -->
+
+</struts>

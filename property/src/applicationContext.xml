@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-autowire="byName"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+
+
+ <bean name="weapon" class="com.vo.aa">
+   <!-- 利用属性名称装配 -->
+	<!-- <property name="name" value="丈八蛇矛"></property>
+	<property name="power" value="9"></property> -->
+	
+	 <!-- 利用属性顺序装配 -->
+<!--  	<constructor-arg index="0" value="倚天剑"></constructor-arg>
+	<constructor-arg index="1" value="10"></constructor-arg> -->
+	
+	 <!-- 利用属性类型装配 -->
+	<constructor-arg type="String" value="倚天剑"></constructor-arg>
+	<constructor-arg type="int" value="10"></constructor-arg>
+	
+</bean>
+
+<bean name="general" class="com.vo.General" >
+	<property name="name" value="谭庆波"></property>
+	<property name="age" value="20"></property>
+<!-- 	<property name="weapon" ref="weap"></property>  -->
+	<!-- 装配数组 -->
+	<property name="hobby" >
+		<array>
+			<value>跑步</value>
+			<value>旅行</value>
+			<value>编程</value>
+		</array>
+	</property>
+	<!-- 装配集合 -->
+	<property name="skill">
+		<list>
+			<value>java</value>
+			<value>linux</value>
+		</list>
+	</property>
+	
+	<!-- 装配对象 -->
+	<property name="set">
+		<set>
+			<bean class="com.vo.aa">
+				<property name="name" value="青龙年月刀"></property>
+				<property name="power" value="10"></property>
+			</bean>
+	<!-- 	<ref bean="weap"/> -->
+		</set>
+	</property>
+	
+	<!-- 装配hashmap -->
+	<property name="language">
+		<map>
+			<entry key="英语" value="四级"></entry>
+			<entry key="俄语" value="不会"></entry>
+			<entry key="衡阳话" value="10级"></entry>
+		</map>
+	</property>
+	
+</bean>
+
+
+
+
+</beans>
